@@ -14,11 +14,14 @@ set $term foot
 # Your preferred application launcher
 set $menu bemenu-run
 
+set $SCRIPTS $HOME/.config/sway/scripts
+set $WALLPAPERS $HOME/.config/sway/wallpapers
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output "*" bg /home/josh/Downloads/forest.jpg fill
+output "*" bg $WALLPAPERS/forest.jpg fill
 #wlr-randr --output DP-1 --mode 3440x1440@100Hz
 #
 # Example configuration:
@@ -69,12 +72,12 @@ output "*" bg /home/josh/Downloads/forest.jpg fill
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+p exec /home/josh/.config/sway/scripts/menu.sh
+    bindsym $mod+p exec $SCRIPTS/menu.sh
 
-    bindsym $mod+o exec /home/josh/.local/bin/obsidian.sh
-    bindsym $mod+d exec /home/josh/.local/bin/battery.sh
-    bindsym $mod+w exec /home/josh/.local/bin/weather.sh
-    bindsym $mod+v exec foot --app-id=fzfmenu --config=/home/josh/.config/foot/picker.ini -e /home/josh/.local/bin/clipboard-history.sh sel
+    bindsym $mod+o exec $SCRIPTS/obsidian.sh
+    bindsym $mod+d exec $SCRIPTS/battery.sh
+    bindsym $mod+w exec $SCRIPTS/weather.sh
+    bindsym $mod+v exec foot --app-id=fzfmenu --config=$HOME/.config/foot/picker.ini -e $SCRIPTS/clipboard-history.sh sel
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -213,7 +216,6 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
     bindsym $mod+q exec grim -g "$(slurp)" - | wl-copy -t image/png
-    bindsym $mod+c exec /home/josh/.local/bin/wl-color-picker.sh 
 
 #
 # Status Bar:
@@ -231,8 +233,8 @@ for_window [app_id="fzfmenu"] floating enable, resize set 900 500, move position
 
 # sets opacity for unfocused windows
 #exec /usr/share/sway/scripts/inactive-windows-transparency.py --opacity 0.85
-exec_always /home/josh/Downloads/inactive-windows-transparency.py --opacity 0.8
+exec_always $SCRIPTS/inactive-windows-transparency.py --opacity 0.8
 exec wlr-randr --output DP-1 --mode 3440x1440@100Hz
-exec_always wl-paste --watch /home/josh/.local/bin/clipboard-history.sh add
+exec_always wl-paste --watch $SCRIPTS/clipboard-history.sh add
 
 include /etc/sway/config.d/*
