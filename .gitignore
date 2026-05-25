@@ -1,0 +1,8 @@
+# ignore everything
+/*
+
+!.gitignore
+!/sway
+!/sway/**
+!/waybar
+!/waybar/**
