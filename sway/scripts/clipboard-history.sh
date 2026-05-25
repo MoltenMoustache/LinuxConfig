@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# PREREQUISITES:
+# - fzf
+# - bat
+
 HISTORY_DIR="$HOME/.cache/cliphist_text"
 MAX_HISTORY=30
 

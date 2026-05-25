@@ -26,6 +26,7 @@ get_devices () {
             *"logitech pro"*)       icon="🖱️"  ;; # logitech pro x 2
             *"keyboard"*)    icon="⌨️"  ;;
             *"headset"*|*"headphone"*) icon="🎧" ;;
+            *"m1005922"*) model="Apollo" icon="💻";;
             *)             icon="📡" ;;
         esac
 

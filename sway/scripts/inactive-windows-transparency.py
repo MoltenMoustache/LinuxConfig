@@ -4,6 +4,7 @@
 # or pip).
 # It makes inactive windows transparent. Use `transparency_val` variable to control
 # transparency strength in range of 0…1 or use the command line argument -o.
+# NOTE: installing sway-contrib installs the required i3ipc-python package
 
 import argparse
 import signal
